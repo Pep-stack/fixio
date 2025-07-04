@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# 🛠️ Fixio – Projectplanning voor vakmensen en doe-het-zelvers
 
-First, run the development server:
+**Fixio** is een mobile-first webapplicatie voor zelfstandige klussers, installateurs en kleine bouwteams. De app helpt gebruikers om klussen/projecten te plannen, taken te verdelen, materialen te beheren en stap-voor-stap begeleiding te krijgen via AI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Tech Stack
+
+- **Next.js (App Router)**
+- **TypeScript**
+- **Tailwind CSS** (met **DaisyUI** als componentlib)
+- **Supabase** (auth + database + storage)
+- **Vercel** voor hosting
+- **Mobile-first, PWA-ready**
+
+---
+
+## 📦 Installatie & Setup
+
+1. **Repo klonen**
+   ```bash
+   git clone https://github.com/jouw-gebruikersnaam/fixio.git
+   cd fixio
+   ```
+
+2. **Dependencies installeren**
+   ```bash
+   pnpm install
+   ```
+
+3. **.env.local aanmaken**
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+   ```
+
+4. **Dev-server starten**
+   ```bash
+   pnpm dev
+   # Open http://localhost:3000
+   ```
+
+---
+
+## 🧱 Projectstructuur
+
+```
+/app
+  /dashboard
+  /projects
+  /tasks
+  /materials
+  /diy
+  /ai
+/components
+/lib
+/types
+/styles
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📋 Pagina's & Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🔐 Login (`/login`)
+- **Locatie**: `app/login/page.js`
+- **Features**: 
+  - Mobile-first responsief design
+  - Email + wachtwoord authenticatie
+  - Loading states en error handling
+  - Links naar registratie en wachtwoord reset
+- **Styling**: Witte achtergrond, zwarte tekst, strak modern design
+- **Status**: Frontend gereed, Supabase auth integratie pending
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 UI / Styling
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Kleuren**  
+  - `#ffffff` – Wit (primaire achtergrond)
+  - `#000000` – Zwart (primaire tekst + accenten)
+  - `#f9fafb` – Lichtgrijs (Tailwind: `gray-50`)
+  - `#6b7280` – Grijs (Tailwind: `gray-500` voor subtekst)  
+  - `#22c55e` – Groen voor successen (`green-500`)  
+  - `#ef4444` – Rood voor fouten (`red-500`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Typografie**  
+  - Sans-serif, strak en leesbaar (Tailwind default)
 
-## Deploy on Vercel
+- **Componenten** via [DaisyUI](https://daisyui.com/components/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👥 User Types
+
+- 👷 **Pro-gebruiker**: ZZP’er of klein bouwteam  
+- 🧑‍🔧 **DIY-gebruiker**: Consument / doe-het-zelver
+
+---
+
+## 🧪 Development Info
+
+- **Mobile-first bouwen**
+- **Supabase Auth**
+- **Gebruik `src/lib/supabase.ts` voor instantiebeheer**
+
+---
+
+## 🚧 Roadmap (MVP)
+
+### ✅ Week 1
+- Supabase Auth (login/signup/reset)
+- Rolkeuze: Pro vs DIY
+- Dashboard + project aanmaken
+
+### ✅ Week 2
+- Taken + status + toewijzing
+- Materiaalbeheer
+- AI-stub: volgorde taken
+
+### ✅ Week 3
+- DIY-wizard met AI-checklist
+- Afvinkbare stappen
+
+---
+
+## ☁️ Deploy op Vercel
+
+1. Push naar GitHub
+2. Ga naar [vercel.com](https://vercel.com), koppel je repo
+3. Voeg `.env` vars toe bij “Project Settings”
+4. Deploy = automatisch live
+
+---
+
+## 📱 PWA-optioneel
+
+- Voeg `manifest.json` toe
+- Gebruik `next-pwa` plugin
+- Activeer `Add to Home Screen`
+
+---
+
+## 👥 Contributor guidelines
+
+- Schrijf duidelijke commits (`feat:`, `fix:`, `refactor:`)
+- Houd code modular via `/components/`
+- Gebruik `tailwind.config.ts` voor consistent thema
+
+---
+
+## 🧑‍💻 Made in Cursor
